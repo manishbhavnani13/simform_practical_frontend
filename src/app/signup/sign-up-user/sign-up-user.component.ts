@@ -93,7 +93,7 @@ export class SignUpUserSComponent implements OnInit, OnDestroy {
           } else {
             if (data.body.isAvailable) {
               const toaster = this.injector.get(ToastrService);
-              toaster.error('Email Already Registerd', 'Success', {
+              toaster.success('Email Already Registerd', 'Success', {
                 timeOut: 3000
               });
             } else {
