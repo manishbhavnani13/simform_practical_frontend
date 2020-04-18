@@ -1,0 +1,56 @@
+
+<header>
+  <nav class="navbar navbar-default">
+    <a class="navbar-brand" href="#">Category</a>
+    <button type="button" [routerLink] ="['/category/add']" class="btn btn-primary text-center"> Add Category</button>
+  
+</nav>
+  
+</header>
+
+<div class="container">
+  <div class="row">
+    <nav class="navbar">
+      <input class="form-control"  placeholder="Search" type="text" name="search" [(ngModel)]="filter">      
+    </nav>
+   
+    <table class="table">
+      <thead>
+        <tr>
+          <th><b>Category Id</b></th>
+          <th (click)="sort('category_name')"><b>Category Name</b>
+          &nbsp;&nbsp;&nbsp;  <i class="material-icons" >sort</i>
+          </th>
+          <th (click)="sort('category_title')"><b>Title</b> 
+            &nbsp;&nbsp;&nbsp;  <i class="material-icons" >sort</i>
+          </th>
+
+          <th (click)="sort('category.user_details.firstName')"><b>Categoery Add By</b> 
+            &nbsp;&nbsp;&nbsp;  <i class="material-icons" >sort</i>
+          </th>
+
+          <th (click)="sort('created_at')"><b>Created Date</b> 
+            &nbsp;&nbsp;&nbsp;  <i class="material-icons" >sort</i>
+          </th>
+
+
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categoryListData | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+          <td>{{category?._id}}</td>
+          <td>{{category?.category_name}}</td>
+          <td>{{category?.category_title}}</td>
+          <td>{{category?.user_details?.firstName | uppercase}}  {{category.user_details?.lastName | uppercase }} </td>
+          <td>{{category?.created_at | date : 'dd-MM-yyyy'}}
+          <td><i class="material-icons" [routerLink]="['/category/edit' , category._id]" >edit</i></td>
+          
+        </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+  </div>
+</div>

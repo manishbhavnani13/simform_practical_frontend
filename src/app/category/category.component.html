@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-6 col-lg-6 col-md-6 sol-sm-6">
+        <form [formGroup]="categoryForm" (ngSubmit)="saveProduct(categoryForm.value)">
+          <div class="form-group">
+            <label>Catrgory Name</label>
+            <input type="text" class="form-control" placeholder="Enter Name" formControlName="name" required>
+            <div class="alert-danger" *ngIf="!categoryForm.controls['name'].valid && (categoryForm.controls['name'].touched)">
+              <div [hidden]="!categoryForm.controls['name'].errors.required">
+                Name is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Category Title</label>
+            <input type="text" class="form-control" placeholder="Category Title" formControlName="title" required>
+            <div class="alert-danger" *ngIf="!categoryForm.controls['title'].valid && (categoryForm.controls['title'].touched)">
+              <div [hidden]="!categoryForm.controls['title'].errors.required">
+                Title is required.
+              </div>
+              <div [hidden]="!categoryForm.controls['title'].errors.minlength">
+                Title must be have 10 character length.
+              </div>
+              <div [hidden]="!categoryForm.controls['title'].errors.maxlength">
+                Title must be have 1000 character length.
+              </div>
+            </div>
+          </div>
+     
+          <button type="submit" class="btn btn-primary" [disabled]="!categoryForm.valid">{{isEdit === true ? 'UPDATE' : 'ADD'}}</button>
+          <button type="submit" class="btn btn-danger" [routerLink]="['/category/list']" >Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>

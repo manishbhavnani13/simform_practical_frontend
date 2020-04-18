@@ -1,0 +1,54 @@
+@import './variables';
+@mixin btn-purple($padding,$font-size) {
+    padding: $padding !important ;
+    border-radius: 8px !important;
+    background-color: $simform-bg-color !important;
+    font-family: $simform-font-family !important;
+    font-size: $font-size !important;
+    color: #fff !important;
+    border: 1px solid $simform-bg-color  !important;
+    line-height: 1px !important;
+
+    &:hover {
+        background: #fff !important;
+        color: $simform-bg-color !important;
+        border:
+         1px solid $simform-bg-color  !important;
+    }
+
+    @media (max-width: 480px) {
+        font-size: $font-size - 4px !important;
+        padding: $padding - 2px !important;
+    }
+    @media (max-width: 375px) {
+        font-size: $font-size - 9px !important;
+        padding: $padding - 4px !important;
+    }
+}
+
+@mixin btn-orange($padding,$font-size)  {
+    padding: $padding !important;
+    border-radius: 8px !important;
+    background-color:  $simform-orange !important;
+    font-family: $simform-font-family !important;
+    font-size: $font-size !important;
+    color: #fff !important;
+    border: 1px solid $simform-orange  !important;
+    line-height: 1px !important;
+
+    &:hover {
+        background: #fff !important;
+        color: $simform-orange !important;
+        border: 1px solid $simform-orange  !important;
+    }
+    @media (max-width: 480px) {
+        font-size: $font-size - 4px !important;
+        padding: $padding - 2px !important;
+    }
+    @media (max-width: 375px) {
+        font-size: $font-size - 9px !important;
+        padding: $padding - 4px !important;
+    }
+}
+
+
