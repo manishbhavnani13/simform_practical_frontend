@@ -86,14 +86,14 @@ export class SignUpUserSComponent implements OnInit, OnDestroy {
           this.loader = false;
           if (data.body.success === true) {
             const toaster = this.injector.get(ToastrService);
-            toaster.error('Register Successful', 'Success', {
+            toaster.success('Register Successful', 'Success', {
               timeOut: 3000
             });
             this.router.navigate(['/auth']);
           } else {
             if (data.body.isAvailable) {
               const toaster = this.injector.get(ToastrService);
-              toaster.success('Email Already Registerd', 'Success', {
+              toaster.error('Email Already Registerd', 'Success', {
                 timeOut: 3000
               });
             } else {
